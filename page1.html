@@ -8,38 +8,102 @@
     <!-- 【説明】文字化け防止の設定 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 【説明】レスポンシブ対応の設定 -->
-    <title>Action Page - Framework</title>
+    <title>Detailed Action Page</title>
     <!-- 【説明】ブラウザのタブに表示される名前 -->
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 【説明】Tailwind CSSを読み込み、フレームワークの機能を使えるようにする -->
+    <!-- 【説明】Tailwind CSSを読み込み、高度なレイアウト機能を使えるようにする -->
 
 </head>
-<body class="bg-slate-100 min-h-screen flex flex-col items-center justify-center p-4">
-<!-- 【説明】背景を薄いグレーにし、中身を画面の上下左右中央に配置する -->
+<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed">
+<!-- 【説明】背景を薄いグレー(bg-slate-50)にし、文字間隔を読みやすく(leading-relaxed)設定 -->
 
-    <div class="bg-white p-10 rounded-3xl shadow-xl max-w-sm w-full text-center border-t-8 border-blue-600">
-    <!-- 【説明】白いカード、大きな角丸、強い影、上に青い太線をつけた枠組み -->
+    <div class="max-w-4xl mx-auto py-12 px-6">
+    <!-- 【説明】全体の横幅を制限(max-w-4xl)し、中央寄せ(mx-auto)と上下の余白(py-12)を作る -->
 
-        <div class="text-6xl mb-6">🎯</div>
-        <!-- 【説明】アイコンとして絵文字を大きく表示し、下に隙間を作る -->
+        <nav class="mb-10">
+            <a href="index.html" class="text-blue-600 hover:underline flex items-center gap-2">
+                <span>←</span> ホームへ戻る
+            </a>
+        </nav>
+        <!-- 【説明】画面上部にナビゲーション（戻るリンク）を配置 -->
 
-        <h1 class="text-2xl font-black text-slate-800 mb-4">アクションページ</h1>
-        <!-- 【説明】見出しを太字の濃いグレーにし、下に隙間を作る -->
+        <header class="bg-white rounded-3xl p-10 shadow-sm border border-slate-200 mb-8 flex flex-col md:flex-row items-center gap-8">
+        <!-- 【説明】ヘッダー部分。PCでは横並び(md:flex-row)、スマホでは縦並びにして、境界線(border)で区切る -->
+            
+            <div class="w-32 h-32 bg-blue-100 rounded-full flex items-center justify-center text-5xl shadow-inner">
+                🕹️
+            </div>
+            <!-- 【説明】丸いアイコン枠を作り、内側に影(shadow-inner)をつけて立体感を出す -->
 
-        <p class="text-slate-500 mb-8 text-sm leading-relaxed">
-            このページはCSSフレームワークを使用して<br>
-            デザインされています。
-        </p>
-        <!-- 【説明】説明文を薄いグレーにし、行間を広げて読みやすくする -->
+            <div class="text-center md:text-left">
+                <h1 class="text-4xl font-black mb-2 tracking-tight">アクション・プロジェクト</h1>
+                <!-- 【説明】タイトル。文字を非常に太く(font-black)し、文字間を詰め(tracking-tight)て力強さを出す -->
+                <p class="text-slate-500 text-lg">現在開発中のアクションゲームに関する詳細ログです。</p>
+                <!-- 【説明】サブタイトルを薄いグレーで添える -->
+            </div>
+        </header>
 
-        <a href="index.html" class="inline-block w-full py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-md">
-            トップへ戻る
-        </a>
-        <!-- 【説明】青いボタン。マウスを乗せた時に少し暗い青へ変化させる -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 【説明】3カラム(列)のレイアウト。スマホでは1列に自動で重なる -->
+
+            <section class="md:col-span-2 space-y-8">
+            <!-- 【説明】メインの文章エリア。2カラム分の幅を使い、各ブロックの間に隙間(space-y-8)を空ける -->
+                
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+                    <h2 class="text-xl font-bold border-l-4 border-blue-500 pl-4 mb-4">プロジェクト概要</h2>
+                    <!-- 【説明】見出し。左側に青い線(border-l-4)をつけて強調する -->
+                    <p class="text-slate-600 mb-4">
+                        このセクションでは、現在進行中のプロジェクトにおける技術的な課題や、達成したい目標について詳しく記述します。
+                    </p>
+                    <p class="text-slate-600">
+                        フレームワークを活用することで、情報の整理が容易になり、閲覧者にとっても読みやすい構成を実現しています。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+                    <h2 class="text-xl font-bold border-l-4 border-blue-500 pl-4 mb-4">今後のアップデート予定</h2>
+                    <!-- 【説明】箇条書きリストを使って情報量を増やす -->
+                    <ul class="list-disc list-inside space-y-3 text-slate-600">
+                        <li>レスポンシブデザインのさらなる最適化</li>
+                        <li>JavaScriptを用いた動的な演出の追加</li>
+                        <li>外部APIとの連携によるリアルタイムデータの表示</li>
+                        <li>ダークモードへの対応（Tailwind CSSの活用）</li>
+                    </ul>
+                </div>
+            </section>
+
+            <aside class="space-y-6">
+            <!-- 【説明】サイドバーエリア。補助的な情報をまとめる -->
+                
+                <div class="bg-blue-600 text-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest opacity-80">Status</h3>
+                    <!-- 【説明】項目名を小さく(text-xs)、間隔を広げて(tracking-widest)表示 -->
+                    <p class="text-2xl font-bold">開発率 65%</p>
+                    <div class="w-full bg-blue-400 h-2 rounded-full mt-3 overflow-hidden">
+                        <div class="bg-white w-2/3 h-full"></div>
+                    </div>
+                    <!-- 【説明】進捗バー(プログレスバー)のデザイン -->
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                    <h3 class="font-bold mb-4 text-slate-800">使用技術タグ</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold">HTML5</span>
+                        <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold">Tailwind CSS</span>
+                        <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold">Vercel</span>
+                        <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold">GitHub</span>
+                    </div>
+                    <!-- 【説明】タグ風のデザイン(rounded-full)を並べる -->
+                </div>
+            </aside>
+        </div>
+
+        <footer class="mt-16 pt-8 border-t border-slate-200 text-center text-slate-400 text-sm">
+            &copy; 2024 My Game Hub. Built with Tailwind CSS & Vercel.
+        </footer>
+        <!-- 【説明】画面下部のフッター。上に区切り線(border-t)を入れる -->
 
     </div>
-    <!-- 【説明】カード枠の終了 -->
-
 </body>
 </html>
