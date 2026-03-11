@@ -1,41 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>My Test Site</title>
-
-<style>
-body{
-    font-family: Arial, sans-serif;
-    text-align:center;
-    background:#f4f4f4;
-    margin-top:100px;
-}
-
-h1{
-    color:#333;
-}
-
-button{
-    padding:10px 20px;
-    font-size:16px;
-    cursor:pointer;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Game Hub - 10 Pages</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; background: #f0f2f5; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background: #1a1a1a; color: white; padding: 1rem; text-align: center; }
+        
+        /* メニューの並び（グリッド） */
+        main { flex: 1; padding: 20px; max-width: 900px; margin: 0 auto; }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 横に並べる */
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .menu-item {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: 0.2s;
+        }
+        .menu-item:hover { background: #0070f3; color: white; transform: translateY(-3px); }
+        
+        footer { background: #1a1a1a; color: white; text-align: center; padding: 10px; margin-top: 20px; }
+    </style>
 </head>
 <body>
 
-<h1>Hello GitHub Pages</h1>
-<p>This is my first test website.</p>
+<header>
+    <h1>🎮 My Game Project Hub</h1>
+    <p>10個のページへ移動できるぞ！</p>
+</header>
 
-<button onclick="showMessage()">Click me</button>
+<main>
+    <div class="menu-grid">
+        <!-- ページへのリンク（hrefにファイル名を指定） -->
+        <a href="page1.html" class="menu-item">01: アクション</a>
+        <a href="page2.html" class="menu-item">02: パズル</a>
+        <a href="page3.html" class="menu-item">03: RPG</a>
+        <a href="page4.html" class="menu-item">04: シューティング</a>
+        <a href="page5.html" class="menu-item">05: レース</a>
+        <a href="page6.html" class="menu-item">06: スポーツ</a>
+        <a href="page7.html" class="menu-item">07: シミュレーション</a>
+        <a href="page8.html" class="menu-item">08: アドベンチャー</a>
+        <a href="page9.html" class="menu-item">09: 格闘</a>
+        <a href="page10.html" class="menu-item">10: 設定・管理</a>
+    </div>
+</main>
 
-<script>
-function showMessage(){
-    alert("Your website works!");
-}
-</script>
+<footer>
+    &copy; 2024 My Game Hub
+</footer>
 
 </body>
 </html>
