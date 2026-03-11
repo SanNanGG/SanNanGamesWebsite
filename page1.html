@@ -1,16 +1,45 @@
 <!DOCTYPE html>
+<!-- 【説明】最新のHTML5形式であることを宣言 -->
 <html lang="ja">
+<!-- 【説明】言語を日本語に設定 -->
 <head>
+<!-- 【説明】設定エリアの開始 -->
     <meta charset="UTF-8">
-    <title>Page Content</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding-top: 100px; background: #eef; }
-        .back-link { display: inline-block; margin-top: 20px; color: #0070f3; text-decoration: none; font-weight: bold; }
-    </style>
+    <!-- 【説明】文字化け防止の設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 【説明】レスポンシブ対応の設定 -->
+    <title>Action Page - Framework</title>
+    <!-- 【説明】ブラウザのタブに表示される名前 -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 【説明】Tailwind CSSを読み込み、フレームワークの機能を使えるようにする -->
+
 </head>
-<body>
-    <h1>ここは「新しいページ」だ！</h1>
-    <p>各ページで違う内容を書いていくことができるぞ。</p>
-    <a href="index.html" class="back-link">← ホームに戻る</a>
+<body class="bg-slate-100 min-h-screen flex flex-col items-center justify-center p-4">
+<!-- 【説明】背景を薄いグレーにし、中身を画面の上下左右中央に配置する -->
+
+    <div class="bg-white p-10 rounded-3xl shadow-xl max-w-sm w-full text-center border-t-8 border-blue-600">
+    <!-- 【説明】白いカード、大きな角丸、強い影、上に青い太線をつけた枠組み -->
+
+        <div class="text-6xl mb-6">🎯</div>
+        <!-- 【説明】アイコンとして絵文字を大きく表示し、下に隙間を作る -->
+
+        <h1 class="text-2xl font-black text-slate-800 mb-4">アクションページ</h1>
+        <!-- 【説明】見出しを太字の濃いグレーにし、下に隙間を作る -->
+
+        <p class="text-slate-500 mb-8 text-sm leading-relaxed">
+            このページはCSSフレームワークを使用して<br>
+            デザインされています。
+        </p>
+        <!-- 【説明】説明文を薄いグレーにし、行間を広げて読みやすくする -->
+
+        <a href="index.html" class="inline-block w-full py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-md">
+            トップへ戻る
+        </a>
+        <!-- 【説明】青いボタン。マウスを乗せた時に少し暗い青へ変化させる -->
+
+    </div>
+    <!-- 【説明】カード枠の終了 -->
+
 </body>
 </html>
