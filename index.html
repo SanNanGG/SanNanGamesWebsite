@@ -1,63 +1,92 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Game Hub - 10 Pages</title>
-    <style>
-        body { font-family: sans-serif; margin: 0; background: #f0f2f5; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background: #1a1a1a; color: white; padding: 1rem; text-align: center; }
-        
-        /* メニューの並び（グリッド） */
-        main { flex: 1; padding: 20px; max-width: 900px; margin: 0 auto; }
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 横に並べる */
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .menu-item {
-            background: white;
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: 0.2s;
-        }
-        .menu-item:hover { background: #0070f3; color: white; transform: translateY(-3px); }
-        
-        footer { background: #1a1a1a; color: white; text-align: center; padding: 10px; margin-top: 20px; }
-    </style>
-</head>
-<body>
+// 【説明】Next.jsの個別ページ。どんなジャンルの自作ゲームでも映えるダークレイアウト。
+export default function GamePlayPage({ params }: { params: { id: string } }) {
+  return (
+    <main className="min-h-screen bg-[#0b0e14] text-slate-100 font-sans">
+    {/* 【説明】背景を極限まで黒に近い紺(#0b0e14)にし、ゲームのグラフィックを引き立てる */}
 
-<header>
-    <h1>🎮 My Game Project Hub</h1>
-    <p>10個のページへ移動できるぞ！</p>
-</header>
+      {/* --- ヘッダー（上部ナビ） --- */}
+      <nav className="h-16 bg-[#161b22] flex items-center px-6 border-b border-slate-800 shadow-2xl">
+        <a href="/" className="text-2xl font-black italic tracking-tighter text-yellow-500 hover:text-yellow-400 transition-colors">
+          MY GAME STUDIO
+        </a>
+        <div className="ml-auto flex gap-6 text-sm font-bold text-slate-400">
+          <a href="#" className="hover:text-white">すべてのゲーム</a>
+          <a href="#" className="hover:text-white">ランキング</a>
+          <a href="#" className="hover:text-white">コミュニティ</a>
+        </div>
+      </nav>
+      {/* 【説明】ロゴとメニュー。黄色(yellow-500)をアクセントにして「ゲーム感」を出す */}
 
-<main>
-    <div class="menu-grid">
-        <!-- ページへのリンク（hrefにファイル名を指定） -->
-        <a href="page1.html" class="menu-item">01: アクション</a>
-        <a href="page2.html" class="menu-item">02: パズル</a>
-        <a href="page3.html" class="menu-item">03: RPG</a>
-        <a href="page4.html" class="menu-item">04: シューティング</a>
-        <a href="page5.html" class="menu-item">05: レース</a>
-        <a href="page6.html" class="menu-item">06: スポーツ</a>
-        <a href="page7.html" class="menu-item">07: シミュレーション</a>
-        <a href="page8.html" class="menu-item">08: アドベンチャー</a>
-        <a href="page9.html" class="menu-item">09: 格闘</a>
-        <a href="page10.html" class="menu-item">10: 設定・管理</a>
-    </div>
-</main>
+      <div className="max-w-[1200px] mx-auto py-8 px-4 grid grid-cols-1 lg:grid-cols-12 gap-8">
+      {/* 【説明】メインエリア。PCでは12カラム(列)で分割し、ゲーム画面を広く取る */}
 
-<footer>
-    &copy; 2024 My Game Hub
-</footer>
+        {/* --- 1. メイン：ゲームプレイヤー (左8列分) --- */}
+        <div className="lg:col-span-8 space-y-6">
+          
+          <div className="relative aspect-video bg-black rounded-xl overflow-hidden border border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#1c2128]">
+              <div className="text-9xl mb-6 drop-shadow-2xl">🎮</div>
+              <p className="text-2xl font-black text-white uppercase tracking-widest mb-8">
+                PROJECT ID: {params.id}
+              </p>
+              <button className="bg-yellow-500 hover:bg-yellow-400 text-black px-12 py-5 rounded-full text-2xl font-black transition-all hover:scale-105 active:scale-95 shadow-lg shadow-yellow-500/20">
+                PLAY NOW
+              </button>
+            </div>
+            {/* 【説明】16:9の比率。ここに自作ゲームの本体(Canvas/iframe)を埋め込む想定 */}
+          </div>
 
-</body>
-</html>
+          <div className="bg-[#161b22] p-8 rounded-xl border border-slate-800">
+            <div className="flex justify-between items-start mb-6">
+              <div>
+                <h1 className="text-4xl font-black uppercase italic mb-2">Original Game Title {params.id}</h1>
+                <div className="flex gap-2">
+                  <span className="bg-slate-700 px-3 py-1 rounded text-xs font-bold uppercase">Action</span>
+                  <span className="bg-slate-700 px-3 py-1 rounded text-xs font-bold uppercase">Indie</span>
+                  <span className="bg-yellow-500/10 text-yellow-500 px-3 py-1 rounded text-xs font-bold uppercase">New Release</span>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-3xl font-black text-yellow-500">4.9</p>
+                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">User Rating</p>
+              </div>
+            </div>
+            {/* 【説明】タイトル、ジャンルタグ、評価を表示する情報セクション */}
+
+            <div className="prose prose-invert max-w-none border-t border-slate-800 pt-6">
+              <h3 className="text-lg font-bold mb-4 text-slate-300">ゲーム説明</h3>
+              <p className="text-slate-400 leading-relaxed text-sm">
+                このゲームは独自に開発された完全オリジナル作品です。
+                プレイヤーのスキルが試される、かつてない体験を。
+                (ID: {params.id} のゲーム詳細情報をここに記述します)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* --- 2. サイド：関連・おすすめ (右4列分) --- */}
+        <aside className="lg:col-span-4 space-y-4">
+          <h2 className="text-xs font-black text-slate-500 uppercase tracking-[0.3em] mb-4 pl-2">
+            おすすめの自作ゲーム
+          </h2>
+          {[1, 2, 3, 4, 5].map((i) => (
+            <a key={i} href={`/word/${i}`} className="flex gap-4 bg-[#161b22] p-3 rounded-lg hover:bg-slate-800 transition-all border border-transparent hover:border-slate-700 group">
+              <div className="w-32 h-20 bg-slate-900 rounded flex items-center justify-center text-3xl group-hover:scale-105 transition-transform border border-slate-800">👾</div>
+              <div className="flex flex-col justify-center">
+                <p className="font-bold text-sm group-hover:text-yellow-500 transition-colors">Game Title {i}</p>
+                <p className="text-[10px] text-slate-500 font-bold mt-1 uppercase">Dev Log #{i}</p>
+              </div>
+            </a>
+          ))}
+          {/* 【説明】サイドバーに他の自作ゲームを並べて回遊させる */}
+        </aside>
+
+      </div>
+
+      <footer className="mt-20 py-12 bg-[#080a0f] border-t border-slate-900 text-center text-slate-600 text-xs font-bold uppercase tracking-widest">
+        &copy; 2026 My Independent Game Studio - All Rights Reserved
+      </footer>
+
+    </main>
+  );
+}
